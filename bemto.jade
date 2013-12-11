@@ -138,7 +138,7 @@ mixin bemto_tag(tag)
 mixin b(tag, isElement)
   //- Rewriting the class for elements and modifiers
   if attributes.class
-    - var bemto_classes = attributes.class.split(' ');
+    - var bemto_classes = (Array.isArray(attributes.class))? attributes.class : attributes.class.split(' ');
     - var bemto_block = bemto_classes[0].match(new RegExp('^(((?!' + bemto_settings_element + '|' + bemto_settings_modifier +').)+)'))[1]
 
     if !isElement
